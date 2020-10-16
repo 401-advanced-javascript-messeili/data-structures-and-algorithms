@@ -12,4 +12,4 @@ A simple and basic approach utilizing a for loop and if statement
 
 ## Solution
 
-![img](assets/array-shift.jpg)
+![img](../assets/array-shift.jpg)
