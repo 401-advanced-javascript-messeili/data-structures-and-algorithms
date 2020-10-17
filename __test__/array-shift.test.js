@@ -1,5 +1,5 @@
 'use strict';
-const Test = require('../array-shift');
+const Test = require('../challenges/arrayShift/array-shift.js');
 const test = new Test();
 console.log(test.insertShiftArray([1, 2, 3], 5));
 describe('Test function', () => {
