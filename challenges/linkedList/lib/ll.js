@@ -41,6 +41,7 @@ class LinkedList {
 
 const ll = new LinkedList();
 // ll.insert(4);
+ll.insert(4);
 ll.insert(5);
 ll.insert(6);
 ll.insert(7);
