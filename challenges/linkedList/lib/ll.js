@@ -5,11 +5,13 @@ const Node = require('./node.js');
 class LinkedList {
   constructor() {
     this.head = null;
+    this.size = 0;
   }
   insert(value) {
     const node = new Node(value);
     node.next = this.head;
     this.head = node;
+    this.size++;
     return this;
   }
   includes(value) {
@@ -92,16 +94,38 @@ class LinkedList {
     // console.log(this.head);
     return this;
   }
+
+  kthFromEnd(k) {
+    const index = this.size - k - 1;
+    if (k > this.size || k < 0 || index < 0) {
+      let error = 'Exception';
+      console.log(error);
+      return error;
+    } else {
+      let currentNode = this.head;
+      // console.log(index);
+      for (let i = 0; i < index; i++) {
+        currentNode = currentNode.next;
+      }
+      console.log(currentNode.value);
+      return currentNode.value;
+    }
+  }
 }
 
 const ll = new LinkedList();
 // ll.insert(4);
-// ll.insert(5);
-// ll.insert(6);
-// ll.insert(7);
-ll.append(10);
-ll.append(22);
-ll.insertBefore(22, 110);
+ll.insert(5);
+ll.insert(6);
+ll.insert(7);
+ll.insert(8);
+ll.insert(9);
+ll.insert(10);
+ll.insert(11);
+ll.insert(12);
+ll.kthFromEnd(2);
+
+// ll.insertBefore(22, 110);
 // ll.append(120);
 // ll.includes(4);
 // ll.toString();
