@@ -44,4 +44,19 @@ describe('Linked List', () => {
 
     expect(list.toString()).toEqual(`"{ 7 } -> { 6 } ->  NULL"`);
   });
+
+  it('kthFromEnd()', () => {
+    const list = new LL();
+    const k = 2;
+    list.insert(3);
+    list.insert(4);
+    list.insert(5);
+    list.insert(6);
+
+    expect(list.kthFromEnd(k)).toEqual(5);
+    expect(list.kthFromEnd(9)).toEqual('Exception');
+    expect(list.kthFromEnd(0)).toEqual(3);
+    expect(list.kthFromEnd(-1)).toEqual('Exception');
+    expect(list.kthFromEnd(3)).toEqual(6);
+  });
 });
