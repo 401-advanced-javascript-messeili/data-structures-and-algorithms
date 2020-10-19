@@ -4,20 +4,20 @@
 
 ![challenges](https://miro.medium.com/max/12032/1*t0qL1Rb2dqxOJLq7kGs7gg.jpeg)
 
-| Reading number | Link                                                             |
-| -------------- | ---------------------------------------------------------------- |
-| challenge01    | [Link](https://messeili.github.io/reading-notes/401/challenge01) |
-| challenge02    | [Link](https://messeili.github.io/reading-notes/401/challenge02) |
-| challenge03    | [Link](https://messeili.github.io/reading-notes/401/challenge03) |
-| challenge04    | [Link](https://messeili.github.io/reading-notes/401/challenge04) |
-| challenge05    | [Link](https://messeili.github.io/reading-notes/401/challenge05) |
-| challenge06    | [Link](https://messeili.github.io/reading-notes/401/challenge06) |
-| challenge07    | [Link](https://messeili.github.io/reading-notes/401/challenge07) |
-| challenge08    | [Link](https://messeili.github.io/reading-notes/401/challenge08) |
-| challenge09    | [Link](https://messeili.github.io/reading-notes/401/challenge09) |
-| challenge10    | [Link](https://messeili.github.io/reading-notes/401/challenge10) |
-| challenge11    | [Link](https://messeili.github.io/reading-notes/401/challenge11) |
-| challenge12    | [Link](https://messeili.github.io/reading-notes/401/challenge12) |
-| challenge13    | [Link](https://messeili.github.io/reading-notes/401/challenge13) |
-| challenge14    | [Link](https://messeili.github.io/reading-notes/401/challenge14) |
-| challenge15    | [Link](https://messeili.github.io/reading-notes/401/reading15)   |
+| Reading number | Link                                                                                                                   |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| challenge01    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/arrayBinarySearch) |
+| challenge02    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/arrayReverse/)     |
+| challenge03    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/arrayShift/)       |
+| challenge04    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/challenge-04/)     |
+| challenge05    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge06    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge07    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge08    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge09    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge10    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge11    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge12    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge13    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge14    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
+| challenge15    | [Link](https://401-advanced-javascript-messeili.github.io/data-structures-and-algorithms/challenges/linkedList/)       |
