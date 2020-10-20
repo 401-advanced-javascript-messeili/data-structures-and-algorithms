@@ -37,6 +37,41 @@ class LinkedList {
     console.log(`"${str} NULL"`);
     return `"${str} NULL"`;
   }
+
+  append(value) {
+    const node = new Node(value);
+
+    if (!this.head) {
+      // only if the head is null
+      this.head = node;
+      return this;
+    }
+
+    let currentNode = this.head;
+
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = node;
+    return this;
+  }
+
+  kthFromEnd(k) {
+    const index = this.size - k - 1;
+    if (k > this.size || k < 0 || index < 0) {
+      let error = 'Exception';
+      console.log(error);
+      return error;
+    } else {
+      let currentNode = this.head;
+      // console.log(index);
+      for (let i = 0; i < index; i++) {
+        currentNode = currentNode.next;
+      }
+      console.log(currentNode.value);
+      return currentNode.value;
+    }
+  }
 }
 
 const ll = new LinkedList();
