@@ -5,11 +5,13 @@ const Node = require('./node.js');
 class LinkedList {
   constructor() {
     this.head = null;
+    this.size = 0;
   }
   insert(value) {
     const node = new Node(value);
     node.next = this.head;
     this.head = node;
+    this.size++;
     return this;
   }
   includes(value) {
@@ -22,6 +24,7 @@ class LinkedList {
         newNode = newNode.next;
       }
     }
+    console.log(false);
     return false;
   }
   toString() {
@@ -31,6 +34,7 @@ class LinkedList {
       str += `{ ${newNode.value} } -> `;
       newNode = newNode.next;
     }
+    console.log(`"${str} NULL"`);
     return `"${str} NULL"`;
   }
   insertBefore(value, newVal) {
