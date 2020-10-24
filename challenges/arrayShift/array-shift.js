@@ -1,7 +1,7 @@
 'use strict';
 
 class Test {
-  insertShiftArray = (arr, num) => {
+  insertShiftArray(arr, num) {
     let middleIndex = Math.ceil(arr.length / 2);
 
     let newArr = [];
@@ -15,9 +15,9 @@ class Test {
       }
     }
     return newArr;
-  };
+  }
 
-  deleteMiddleIndex = (arr) => {
+  deleteMiddleIndex(arr) {
     let middleIndex = Math.floor(arr.length / 2);
 
     let newArr = [];
@@ -28,7 +28,7 @@ class Test {
       }
     }
     return newArr;
-  };
+  }
 }
 
 module.exports = Test;
