@@ -13,9 +13,6 @@ l2.toString();
 
 class TestFun {
   zip(l1, l2) {
-    const index1 = l1.size;
-    const index2 = l2.size;
-    const index = index1 + index2 - 1;
     let l3 = new Ll();
     let currentNode1 = l1.head;
     let currentNode2 = l2.head;
@@ -37,3 +34,5 @@ class TestFun {
 const testFun = new TestFun();
 let l3 = testFun.zip(l1, l2);
 l3.toString();
+
+module.exports = TestFun;
