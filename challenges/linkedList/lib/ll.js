@@ -43,14 +43,18 @@ class LinkedList {
       return this;
     }
     let currentNode = this.head;
-    while (currentNode.value !== value) {
+    while (currentNode) {
+      if (currentNode.value == value) {
+        node.next = currentNode;
+        this.head = node;
+        return this.head;
+      } else if (currentNode.next.value == value) {
+        node.next = currentNode.next;
+        currentNode.next = node;
+        return this.head;
+      }
       currentNode = currentNode.next;
     }
-    console.log('currentNode', currentNode);
-    node.next = currentNode;
-    console.log('node', node);
-    this.head.next = node;
-    console.log(this.head);
     return this;
   }
 
@@ -65,13 +69,14 @@ class LinkedList {
     }
     let currentNode = this.head;
     console.log(currentNode);
-    while (currentNode.value !== value) {
-      console.log(currentNode.value);
+    while (currentNode) {
+      if (currentNode.value == value) {
+        node.next = currentNode.next;
+        currentNode.next = node;
+        return this.head;
+      }
       currentNode = currentNode.next;
     }
-    node.next = currentNode.next;
-    currentNode.next = node;
-    console.log(this.head);
     return this;
   }
 
@@ -99,9 +104,15 @@ const ll = new LinkedList();
 // ll.insert(5);
 // ll.insert(6);
 // ll.insert(7);
+ll.append(112);
 ll.append(10);
-ll.append(22);
-ll.insertBefore(22, 110);
+// ll.append(13);
+// ll.append(22);
+// ll.insert(2);
+// ll.insertBefore(13, 15);
+console.log(ll.toString());
+
+// ll.insertBefore(22, 110);
 // ll.append(120);
 // ll.includes(4);
 // ll.toString();
