@@ -26,3 +26,5 @@ class Stack {
     return item;
   }
 }
+
+module.exports = Stack;
