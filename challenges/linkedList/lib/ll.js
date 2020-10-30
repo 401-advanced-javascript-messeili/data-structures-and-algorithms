@@ -84,6 +84,53 @@ class LinkedList {
     return this;
   }
 
+  insertBefore(value, newVal) {
+    const node = new Node(newVal);
+    console.log(node);
+    console.log('head', this.head);
+    if (!this.head) {
+      // only if the head is null
+      this.head = node;
+      return this;
+    }
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.value == value) {
+        node.next = currentNode;
+        this.head = node;
+        return this.head;
+      } else if (currentNode.next.value == value) {
+        node.next = currentNode.next;
+        currentNode.next = node;
+        return this.head;
+      }
+      currentNode = currentNode.next;
+    }
+    return this;
+  }
+
+  insertAfter(value, newVal) {
+    const node = new Node(newVal);
+    console.log(node);
+    // console.log(this.head);
+    if (!this.head) {
+      // only if the head is null
+      this.head = node;
+      return this;
+    }
+    let currentNode = this.head;
+    console.log(currentNode);
+    while (currentNode) {
+      if (currentNode.value == value) {
+        node.next = currentNode.next;
+        currentNode.next = node;
+        return this.head;
+      }
+      currentNode = currentNode.next;
+    }
+    return this;
+  }
+
   append(value) {
     const node = new Node(value);
     if (!this.head) {
@@ -130,7 +177,7 @@ ll.append(10);
 // ll.append(22);
 // ll.insert(2);
 // ll.insertBefore(13, 15);
-// console.log(ll.toString());
+
 
 // ll.insertBefore(22, 110);
 // ll.append(120);
