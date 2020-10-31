@@ -1,58 +1,105 @@
 'use strict';
-const Stack = require('../challenges/stacksAndQueues/stacks-and-queues.js')
-  .Stack;
-const Queue = require('../challenges/stacksAndQueues/stacks-and-queues.js')
-  .Queue;
+let Stack = require('../challenges/stacksAndQueues/stacks-and-queues').Stack;
+let Queue = require('../challenges/stacksAndQueues/stacks-and-queues').Queue;
+
 let stackClass = new Stack();
 let queueClass = new Queue();
-describe('stacks', () => {
-  it('push should push a value into the stack', () => {
-    let result = stackClass.push(5);
-    expect(result.value).toBe(5);
+
+describe('Stacks Test', () => {
+  it('can successfully push into a stack', () => {
+    stackClass = new Stack();
+    let stack = stackClass.push(5);
+    expect(stack.top.value).toEqual(5);
   });
-  it('Pop should remove value at the top of stack', () => {
+  it('Can successfully push multiple values onto a stack', () => {
+    stackClass = new Stack();
     stackClass.push(1);
     stackClass.push(2);
     stackClass.push(3);
-    let result = stackClass.pop();
-    expect(result).toBe(3);
+    let stack = stackClass.push(5);
+    expect(stack.top.value).toEqual(5);
   });
-  it('Peek should show you the top value of the stack', () => {
-    stackClass.push('a');
-    stackClass.push('b');
-    stackClass.push('c');
-    let result = stackClass.peek();
-    expect(result).toBe('c');
+  it('Can successfully pop off the stack', () => {
+    stackClass = new Stack();
+    stackClass.push(1);
+    stackClass.push(2);
+    stackClass.push(3);
+    stackClass.pop();
+    expect(stackClass.pop()).toEqual(2);
+    expect(stackClass.top.value).toEqual(1);
   });
-  it('isEmpty should return true', () => {
-    let stackClass = new Stack();
-    let result = stackClass.isEmpty();
-    expect(result).toBe(true);
+  it('Can successfully empty a stack after multiple pops', () => {
+    stackClass = new Stack();
+    stackClass.push(1);
+    stackClass.push(2);
+    stackClass.push(3);
+    stackClass.pop();
+    stackClass.pop();
+    stackClass.pop();
+
+    expect(stackClass.top).toEqual(null);
+  });
+  it('Can successfully peek the next item on the stack', () => {
+    stackClass = new Stack();
+    stackClass.push(1);
+    stackClass.push(2);
+    stackClass.push(3);
+    expect(stackClass.peek()).toEqual(3);
+  });
+  it('Can successfully instantiate an empty stack', () => {
+    stackClass = new Stack();
+    expect(stackClass).toBeInstanceOf(Stack);
+  });
+  it('Calling pop or peek on empty stack raises exception', () => {
+    stackClass = new Stack();
+    expect(stackClass.peek()).toEqual('Stack is empty');
+    expect(stackClass.pop()).toEqual('Stack is empty');
   });
 });
-describe('Queues', () => {
-  it('enqueue should push a value into the Queue', () => {
-    let result = queueClass.enqueue(5);
-    expect(result.value).toBe(5);
+
+describe('Queues Test', () => {
+  it('Can successfully enqueue into a queue', () => {
+    queueClass = new Queue();
+    let queue = queueClass.enqueue(5);
+    expect(queue.front.value).toEqual(5);
   });
-  it('dequeue should remove value at the last of queue', () => {
-    let queueClass = new Queue();
-    queueClass.enqueue(1);
-    queueClass.enqueue(2);
-    queueClass.enqueue(3);
-    let result = queueClass.dequeue();
-    expect(result).toBe(1);
+  it('Can successfully enqueue multiple values into a queue', () => {
+    queueClass = new Queue();
+    queueClass.enqueue(5);
+    let queue = queueClass.enqueue(6);
+    expect(queue.front.value).toEqual(5);
+    expect(queue.front.next.value).toEqual(6);
   });
-  it('Peek should show you the top value of the queue', () => {
-    let queueClass = new Queue();
-    queueClass.enqueue('a');
-    queueClass.enqueue('b');
-    queueClass.enqueue('c');
-    let result = queueClass.peek();
-    expect(result).toBe('a');
+  it('Can successfully dequeue out of a queue the expected value', () => {
+    queueClass = new Queue();
+    queueClass.enqueue(5);
+    queueClass.enqueue(6);
+    expect(queueClass.dequeue()).toEqual(5);
+    expect(queueClass.front.value).toEqual(6);
   });
-  it('isEmpty should return true', () => {
-    let result = stackClass.isEmpty();
-    expect(result).toBe(false);
+  it('Can successfully peek into a queue, seeing the expected value', () => {
+    queueClass = new Queue();
+    queueClass.enqueue(5);
+    queueClass.enqueue(6);
+    expect(queueClass.peek()).toEqual(5);
+  });
+  it('Can successfully empty a queue after multiple dequeues', () => {
+    queueClass = new Queue();
+    queueClass.enqueue(5);
+    queueClass.enqueue(6);
+    queueClass.enqueue(6);
+    queueClass.dequeue();
+    queueClass.dequeue();
+    queueClass.dequeue();
+    expect(queueClass.front).toBeNull();
+  });
+  it('Can successfully instantiate an empty queue', () => {
+    stackClass = new Stack();
+    expect(queueClass).toBeInstanceOf(Queue);
+  });
+  it('Calling dequeue or peek on empty queue raises exception', () => {
+    queueClass = new Queue();
+    expect(queueClass.peek()).toEqual('Queue is empty');
+    expect(queueClass.dequeue()).toEqual('Queue is empty');
   });
 });
