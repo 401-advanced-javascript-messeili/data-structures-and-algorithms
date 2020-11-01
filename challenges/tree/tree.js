@@ -82,6 +82,14 @@ class BinarySearchTree {
     searchTree(node);
   }
 
+  findMaximumValue() {
+    let currentNode = this.root;
+    while (currentNode.right) {
+      currentNode = currentNode.right;
+    }
+    return currentNode.value;
+  }
+
   contains(value) {
     let currentNode = this.root;
     while (currentNode) {
@@ -97,5 +105,12 @@ class BinarySearchTree {
     return false;
   }
 }
+//Test
+// const bt = new BinarySearchTree();
+// bt.add(1);
+// bt.add(2);
+// bt.add(5);
+// bt.add(10);
+// bt.findMaximumValue();
 
 module.exports = { BinaryTree, BinarySearchTree, Node };

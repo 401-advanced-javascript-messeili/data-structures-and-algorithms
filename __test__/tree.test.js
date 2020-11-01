@@ -57,4 +57,13 @@ describe('Binary search Tree', () => {
     expect(contains).toBe(true);
     expect(notContains).toBe(false);
   });
+  it('findMaximumValue()', () => {
+    binarySearchTree = new BinarySearchTree();
+    binarySearchTree.add(5);
+    binarySearchTree.add(3);
+    binarySearchTree.add(9);
+    expect(binarySearchTree.findMaximumValue()).toBe(9);
+    binarySearchTree.add(15);
+    expect(binarySearchTree.findMaximumValue()).toBe(15);
+  });
 });
