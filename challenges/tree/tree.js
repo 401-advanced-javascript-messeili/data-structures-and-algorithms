@@ -1,4 +1,5 @@
 'use strict';
+let Queue = require('../stacksAndQueues/stacks-and-queues').Queue;
 
 class Node {
   constructor(value, left = null, right = null) {
@@ -48,7 +49,49 @@ class BinaryTree {
     _walk(this.root);
     return results;
   }
+
+  breadthFirst(tree) {
+    const results = [];
+    let newQueue = new Queue();
+    const _walk = (node) => {
+      newQueue.enqueue(node);
+      if (node.left) _walk(node.left);
+      if (node.right) _walk(node.right);
+
+      // while (node.right || node.left) {
+      //   if (node.left) {
+      //     newQueue.enqueue(node.left);
+      //   } else if (node.right) {
+      //     newQueue.enqueue(node.right);
+      //   }
+      //   node = node.left;
+      // }
+    };
+
+    _walk(this.root);
+    return results;
+  }
 }
+
+const one = new Node(2);
+const two = new Node(7);
+const three = new Node(5);
+const four = new Node(2);
+const five = new Node(6);
+const six = new Node(9);
+const seven = new Node(5);
+const eight = new Node(11);
+const nine = new Node(4);
+one.left = two;
+one.right = three;
+two.left = four;
+two.right = five;
+three.right = six;
+five.left = seven;
+five.right = eight;
+six.left = nine;
+let tree = new BinaryTree(one);
+tree.breadthFirst(tree);
 
 class BinarySearchTree {
   constructor() {
@@ -107,10 +150,18 @@ class BinarySearchTree {
 }
 //Test
 // const bt = new BinarySearchTree();
-// bt.add(1);
+// bt.add(6);
 // bt.add(2);
-// bt.add(5);
-// bt.add(10);
+// bt.add(4);
+// bt.add(9);
+// bt.add(15);
+// bt.add(50);
+// bt.add(53);
+// bt.add(12);
+// bt.add(22);
+// bt.add(17);
+// console.log(bt);
+// bt.breadthFirst();
 // bt.findMaximumValue();
 
 module.exports = { BinaryTree, BinarySearchTree, Node };
