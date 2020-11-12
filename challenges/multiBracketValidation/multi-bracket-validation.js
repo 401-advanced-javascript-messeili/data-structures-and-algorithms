@@ -35,6 +35,6 @@ function multiBracketValidation(input) {
 
   return true;
 }
-console.log(multiBracketValidation('[]'));
+
 
 module.exports = multiBracketValidation;
