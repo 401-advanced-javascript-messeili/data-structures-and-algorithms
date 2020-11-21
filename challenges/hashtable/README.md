@@ -10,4 +10,4 @@ add: takes in both the key and value. This method should hash the key, and add t
 
 Utilize the Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge. You will be given feedback and marked down if you attempt to define a large, complex algorithm in one function definition.
 
-![img10](../assets/code-challenge10.jpg)
+![img10](../assets/code-challenge31.jpg)
