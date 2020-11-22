@@ -1,5 +1,16 @@
 'use strict';
-const hashTable = require('../challenges/hashtable/hashtable');
+const HashTable = require('../challenges/hashtable/hashtable').HashMap;
+const hashTable = new HashTable(4000);
+hashTable.add('name', 'mahmoud');
+hashTable.add('one', 'thing');
+hashTable.add('eno', '1');
+hashTable.add('neo', '2');
+hashTable.add('12345', '1');
+hashTable.add('13245', '2');
+hashTable.add('12435', '3');
+hashTable.add('12354', '4');
+hashTable.add('52341', '5');
+hashTable.add('15342', '6');
 describe('hash table test', () => {
   it('can successfully hash the key', () => {
     let index = hashTable.hash('ahmad');
