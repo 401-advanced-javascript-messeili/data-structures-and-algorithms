@@ -77,18 +77,18 @@ class HashMap {
   }
 }
 
-const hashmap = new HashMap(4000);
-hashmap.add('name', 'mahmoud');
-hashmap.add('one', 'thing');
-hashmap.add('eno', '1');
-hashmap.add('neo', '2');
-hashmap.add('12345', '1');
-hashmap.add('13245', '2');
-hashmap.add('12435', '3');
-hashmap.add('12354', '4');
-hashmap.add('52341', '5');
-hashmap.add('15342', '6');
-console.log(hashmap.get('12345'));
-console.log(hashmap.contains('124g35'));
+// const hashmap = new HashMap(4000);
+// hashmap.add('name', 'mahmoud');
+// hashmap.add('one', 'thing');
+// hashmap.add('eno', '1');
+// hashmap.add('neo', '2');
+// hashmap.add('12345', '1');
+// hashmap.add('13245', '2');
+// hashmap.add('12435', '3');
+// hashmap.add('12354', '4');
+// hashmap.add('52341', '5');
+// hashmap.add('15342', '6');
+// console.log(hashmap.get('12345'));
+// console.log(hashmap.contains('124g35'));
 
-module.exports = hashmap;
+module.exports = { HashMap, LinkedList };
