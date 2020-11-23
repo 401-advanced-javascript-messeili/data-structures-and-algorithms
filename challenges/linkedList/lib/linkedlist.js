@@ -7,7 +7,7 @@ class Node {
   }
 }
 
-class linkedList {
+class LinkedList {
   constructor() {
     this.head = null;
   }
@@ -108,7 +108,7 @@ class linkedList {
   }
 }
 
-const ll = new linkedList();
+const ll = new LinkedList();
 // ll.insert(1);
 // ll.insert(2);
 // ll.insert(3);
@@ -116,6 +116,9 @@ const ll = new linkedList();
 ll.append(1);
 ll.append(2);
 ll.append(3);
-ll.append(4);
-ll.insertAfter(10, 3);
-ll.toString();
+ll.append(2);
+ll.append(1);
+// ll.insertAfter(10, 3);
+// ll.toString();
+
+module.exports = ll;
