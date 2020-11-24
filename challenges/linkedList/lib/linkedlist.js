@@ -118,7 +118,9 @@ ll.append(2);
 ll.append(3);
 ll.append(2);
 ll.append(1);
-// ll.insertAfter(10, 3);
+// ll.append(1);
+
+// ll.insertAfter(10, 1);
 // ll.toString();
 
 module.exports = ll;

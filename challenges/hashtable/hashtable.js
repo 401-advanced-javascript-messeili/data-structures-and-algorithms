@@ -45,6 +45,15 @@ class HashMap {
       this.storage[index].prepend({ [key]: value });
     }
   }
+  addWithoutKey(index, value) {
+    if (!this.storage[index]) {
+      const ll = new LinkedList();
+      ll.prepend(value);
+      this.storage[index] = ll;
+    } else {
+      this.storage[index].prepend(value);
+    }
+  }
 
   get(key) {
     const index = this.hash(key);

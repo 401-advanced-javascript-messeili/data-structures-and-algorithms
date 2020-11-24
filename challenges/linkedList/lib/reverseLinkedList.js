@@ -21,5 +21,28 @@ function reverse(ll) {
   }
 }
 
-console.log(reverse(ll));
-console.log('3', tempLl);
+// console.log(reverse(ll));
+// console.log('3', tempLl);
+
+function pend(ll) {
+  let arr = [];
+  if (!ll.head) {
+    return 'empty ll';
+  } else {
+    let currentNode = ll.head;
+    while (currentNode.next) {
+      arr[arr.length] = currentNode.value;
+      currentNode = currentNode.next;
+    }
+    arr[arr.length] = currentNode.value;
+    console.log(arr);
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] !== arr[arr.length - 1 - i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+
+console.log(pend(ll));
