@@ -57,22 +57,12 @@ class BinaryTree {
       newQueue.enqueue(node);
       if (node.left) _walk(node.left);
       if (node.right) _walk(node.right);
-
-      // while (node.right || node.left) {
-      //   if (node.left) {
-      //     newQueue.enqueue(node.left);
-      //   } else if (node.right) {
-      //     newQueue.enqueue(node.right);
-      //   }
-      //   node = node.left;
-      // }
     };
 
     _walk(this.root);
     return results;
   }
 }
-
 
 class BinarySearchTree {
   constructor() {
@@ -114,6 +104,47 @@ class BinarySearchTree {
     return currentNode.value;
   }
 
+  findBeforeMax() {
+    let currentNode = this.root;
+    let preNode;
+    while (currentNode.right) {
+      preNode = currentNode;
+      currentNode = currentNode.right;
+    }
+    if (!currentNode.right && !currentNode.left) {
+      return preNode.value;
+    } else if (currentNode.left && !currentNode.left.right) {
+      return currentNode.left.value;
+    } else {
+      currentNode = currentNode.left;
+      while (currentNode.right) {
+        currentNode = currentNode.right;
+      }
+      return currentNode.value;
+    }
+  }
+
+  findBeforeMin() {
+    let currentNode = this.root;
+    let preNode;
+    while (currentNode.left) {
+      preNode = currentNode;
+      currentNode = currentNode.left;
+    }
+    if (!currentNode.right) {
+      return preNode.value;
+    }
+    if (currentNode.right && !currentNode.right.left) {
+      return currentNode.right.value;
+    } else {
+      currentNode = currentNode.right;
+      while (currentNode.left) {
+        currentNode = currentNode.left;
+      }
+      return currentNode.value;
+    }
+  }
+
   contains(value) {
     let currentNode = this.root;
     while (currentNode) {
@@ -130,17 +161,27 @@ class BinarySearchTree {
   }
 }
 //Test
-// const bt = new BinarySearchTree();
-// bt.add(6);
-// bt.add(2);
-// bt.add(4);
-// bt.add(9);
-// bt.add(15);
-// bt.add(50);
-// bt.add(53);
-// bt.add(12);
-// bt.add(22);
-// bt.add(17);
+const bt = new BinarySearchTree();
+bt.add(6);
+bt.add(2);
+bt.add(4);
+bt.add(9);
+bt.add(15);
+bt.add(50);
+bt.add(53);
+bt.add(12);
+bt.add(22);
+bt.add(17);
+bt.add(51);
+bt.add(66);
+bt.add(96);
+bt.add(77);
+bt.add(81);
+bt.add(95);
+bt.add(-1);
+bt.add(-2);
+console.log(bt.findBeforeMax());
+console.log(bt.findBeforeMin());
 // console.log(bt);
 // bt.breadthFirst();
 // bt.findMaximumValue();
@@ -164,6 +205,5 @@ class BinarySearchTree {
 // six.left = nine;
 // let tree = new BinaryTree(one);
 // tree.breadthFirst(tree);
-
 
 module.exports = { BinaryTree, BinarySearchTree, Node };
