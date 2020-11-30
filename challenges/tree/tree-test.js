@@ -278,10 +278,17 @@ bst2.add(12);
 bst2.add(21);
 bst2.add(23);
 const bst3 = new bST();
-bst3.add(9);
 bst3.add(12);
+bst3.add(13);
 bst3.add(21);
 bst3.add(23);
+bst3.add(10);
+bst3.add(9);
+bst3.add(5);
+bst3.add(1);
+bst3.add(6);
+bst3.add(7);
+bst3.add(8);
 
 // console.log(bst.add(8));
 // console.log(bst.contains(10));
@@ -310,7 +317,8 @@ two.left = four;
 two.right = five;
 three.left = six;
 three.right = seven;
-// const bT = new BinaryTree(one);
+const bT = new BinaryTree(one);
+const bT2 = bT;
 // console.log(bT.preOrder());
 // console.log(bT.inOrder());
 // console.log(bT.postOrder());
@@ -357,5 +365,45 @@ const mergeTrees = (t1, t2) => {
   return t3;
 };
 
-let t3 = mergeTrees(bst, bst2);
-console.log(t3.postOrder());
+const merge = (t1, t2) => {
+  if (!t1 && !t2) return null;
+  var root = new Node((t1 ? t1.value : 0) + (t2 ? t2.value : 0));
+  root.left = merge(t1 ? t1.left : null, t2 ? t2.left : null);
+  root.right = merge(t1 ? t1.right : null, t2 ? t2.right : null);
+  return root;
+};
+
+// console.log('Hii', merge(bst2.root, bst3.root));
+
+var mergeTree = function (t1, t2) {
+  if (!t1 && !t2) return null;
+  var root = new Node((t1 ? t1.value : 0) + (t2 ? t2.value : 0));
+  root.left = mergeTree(t1 ? t1.left : null, t2 ? t2.left : null);
+  root.right = mergeTree(t1 ? t1.right : null, t2 ? t2.right : null);
+  return root;
+};
+
+// console.log('HiiH', mergeTree(bst3.root, bst2.root));
+
+// let t3 = mergeTrees(bst, bst2);
+// console.log(t3.postOrder());
+
+const maxDepth = (t1) => {
+  let count1 = 0;
+  let count2 = 0;
+  const search = (node) => {
+    if (node.left) {
+      count1++;
+      search(node.left);
+    }
+    if (node.right) {
+      count2++;
+      search(node.right);
+    }
+  };
+  search(t1.root);
+  console.log(count1, count2);
+  return count2 > count1 ? count2 : count1;
+};
+
+console.log(maxDepth(bst3));
