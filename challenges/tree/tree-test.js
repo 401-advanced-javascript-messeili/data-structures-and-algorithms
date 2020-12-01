@@ -80,45 +80,6 @@ class bST {
     return searchTree(node);
   }
 
-  // contains(value) {
-  //   let currentNode = this.root;
-  //   while (currentNode) {
-  //     if (value === currentNode.value) {
-  //       return true;
-  //     }
-  //     if (value < currentNode.value) {
-  //       currentNode = currentNode.left;
-  //     } else {
-  //       currentNode = currentNode.right;
-  //     }
-  //   }
-  //   return false;
-  // }
-
-  //   contains(value) {
-  //     const search = (node) => {
-  //       if (!node) {
-  //         return false;
-  //       }
-  //       if (node.value === value) {
-  //         return true;
-  //       }
-  //       if (value > node.value) {
-  //         if (node.right) {
-  //           return search(node.right);
-  //         }
-  //       }
-  //       if (value < node.value) {
-  //         if (node.left) {
-  //           return search(node.left);
-  //         }
-  //       }
-  //       return false;
-  //     };
-  //     // return false;
-  //     return search(this.root);
-  //   }
-
   contains(value) {
     let currentNode = this.root;
     while (currentNode) {
@@ -405,5 +366,167 @@ const maxDepth = (t1) => {
   console.log(count1, count2);
   return count2 > count1 ? count2 : count1;
 };
+const maxDepth2 = (t1) => {
+  let max = 0;
+  const search = (node, count) => {
+    count++;
+    if (!node.left && !node.right) {
+      count > max ? (max = count) : max;
+    }
+    if (node.left) {
+      search(node.left, count);
+    }
+    if (node.right) {
+      search(node.right, count);
+    }
+  };
+  search(t1.root, 0);
+  return max;
+};
 
-console.log(maxDepth(bst3));
+// bst4.add(12);
+// bst4.add(11);
+// bst4.add(13);
+
+const sumDepth2 = (t1, sum) => {
+  let count = 0;
+  let arr = [];
+  const search = (node) => {
+    if (!node.left && !node.right) {
+      count += node.value;
+      arr.push(count);
+      count = 0;
+    }
+    if (node.left) {
+      count += node.value;
+      search(node.left);
+    }
+    if (node.right) {
+      count += node.value;
+      search(node.right);
+    }
+  };
+  search(t1.root);
+  console.log(arr);
+};
+
+// console.log(sumDepth(bst4));
+// console.log(sumDepth2(bst4));
+
+function pathSum(tree, target) {
+  let answer = false;
+  let answerPath = [];
+  const _walk = (node, sum, path) => {
+    sum += node.value;
+    if (sum === target && !node.left && !node.right) {
+      answer = true;
+      path = [...path, node.value];
+      answerPath.push(path);
+    }
+    if (node.left) {
+      _walk(node.left, sum, [...path, node.value]);
+    }
+    if (node.right) {
+      _walk(node.right, sum, [...path, node.value]);
+    }
+  };
+  _walk(tree.root, 0, []);
+  return { answer, answerPath };
+}
+
+// console.log(pathSum(bst4, 19));
+
+const sumDepth = (t1, sum) => {
+  // let count = 0;
+  let arr = [];
+  let arr2 = [];
+  const search = (node, count, path) => {
+    count += node.value;
+    path = [...path, node.value];
+    if (!node.left && !node.right && count === sum) {
+      arr2.push(path);
+      arr.push(count);
+    }
+    if (node.left) {
+      search(node.left, count, path);
+    }
+    if (node.right) {
+      search(node.right, count, path);
+    }
+  };
+  search(t1.root, 0, []);
+  console.log(true, arr, arr2);
+};
+
+// console.log(sumDepth(bst4, 19));
+// console.log(maxDepth2(bst4));
+
+const bst4 = new bST();
+bst4.add(9);
+bst4.add(10);
+bst4.add(4);
+bst4.add(6);
+bst4.add(5);
+bst4.add(7);
+bst4.add(3);
+bst4.add(2);
+bst4.add(1);
+
+const bst5 = new bST();
+bst5.add(9);
+bst5.add(10);
+bst5.add(4);
+
+const invert = (tree) => {
+  const _walk = (root) => {
+    let left = root.left;
+    root.left = root.right;
+    root.right = left;
+    if (root.left) _walk(root.left);
+    if (root.right) _walk(root.right);
+  };
+  _walk(tree.root);
+  return tree;
+};
+
+console.log(invert(bst5));
+console.log(invert(bst5));
+
+const sumDepth3 = (t1) => {
+  // let count = 0;
+  let arr = [];
+  const search = (node, count) => {
+    count += node.value;
+    if (!node.left && !node.right) {
+      arr.push(count);
+    }
+    if (node.left) {
+      search(node.left, count);
+    }
+    if (node.right) {
+      search(node.right, count);
+    }
+  };
+  search(t1.root, 0);
+  return arr;
+};
+
+const minDepth = (t1) => {
+  let min = 10;
+  const search = (node, count) => {
+    count++;
+    if (!node.left && !node.right) {
+      count < min ? (min = count) : min;
+    }
+    if (node.left) {
+      search(node.left, count);
+    }
+    if (node.right) {
+      search(node.right, count);
+    }
+  };
+  search(t1.root, 0);
+  return min;
+};
+
+console.log(minDepth(bst4));

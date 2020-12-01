@@ -162,24 +162,30 @@ class BinarySearchTree {
 }
 //Test
 const bt = new BinarySearchTree();
+bt.add(5);
 bt.add(6);
-bt.add(2);
-bt.add(4);
+bt.add(7);
 bt.add(9);
-bt.add(15);
-bt.add(50);
-bt.add(53);
-bt.add(12);
-bt.add(22);
-bt.add(17);
-bt.add(51);
-bt.add(66);
-bt.add(96);
-bt.add(77);
-bt.add(81);
-bt.add(95);
-bt.add(-1);
-bt.add(-2);
+bt.add(8);
+
+// bt.add(6);
+// bt.add(2);
+// bt.add(4);
+// bt.add(9);
+// bt.add(15);
+// bt.add(50);
+// bt.add(53);
+// bt.add(12);
+// bt.add(22);
+// bt.add(17);
+// bt.add(51);
+// bt.add(66);
+// bt.add(96);
+// bt.add(77);
+// bt.add(81);
+// bt.add(95);
+// bt.add(-1);
+// bt.add(-2);
 console.log(bt.findBeforeMax());
 console.log(bt.findBeforeMin());
 // console.log(bt);
